@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>PRODUCTS!</title>
+    <title>КупиПродай</title>
 </head>
 <body>
-   <h2>Hello!</h2>
+   <h2>Главная страница</h2>
 </body>
 </html>
