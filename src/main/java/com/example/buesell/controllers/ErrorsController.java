@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ErrorsController implements ErrorController {
 
-
     private final ErrorStrategyRegistry errorStrategyRegistry;
 
     public ErrorsController(ErrorStrategyRegistry errorStrategyRegistry) {
