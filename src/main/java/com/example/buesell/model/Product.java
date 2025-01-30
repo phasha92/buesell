@@ -1,13 +1,14 @@
 package com.example.buesell.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@Data
 public class Product {
+    private Long id;
     private String title;
     private String description;
     private int price;
