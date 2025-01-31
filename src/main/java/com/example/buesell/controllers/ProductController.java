@@ -2,6 +2,8 @@ package com.example.buesell.controllers;
 
 import com.example.buesell.model.Product;
 import com.example.buesell.services.ProductService;
+import com.example.buesell.validator.DataValidator;
+import com.example.buesell.validator.ValidRule;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,7 @@ public class ProductController {
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
+
     @GetMapping("/")
     public String product(Model model) {
         model.addAttribute("products", productService.getProducts());
@@ -31,6 +34,15 @@ public class ProductController {
 
     @PostMapping("/product/create")
     public String createProduct(Product product) {
+
+        if (
+                !DataValidator.isValid(product.getTitle(), ValidRule.TITLE) ||
+                        !DataValidator.isValid(product.getDescription(), ValidRule.DESCRIPTION) ||
+                        !DataValidator.isValid(product.getPrice(), ValidRule.PRICE) ||
+                        !DataValidator.isValid(product.getCity(), ValidRule.CITY)
+        ) {
+            return "product-create";
+        }
         productService.saveProduct(product);
         return "redirect:/";
     }
